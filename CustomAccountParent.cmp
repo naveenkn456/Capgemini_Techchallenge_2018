@@ -1,0 +1,6 @@
+<aura:component implements="force:appHostable">
+    <aura:handler name="cmpEvent" event="c:compEventCG" action="{!c.handleComponentEvent}"/>
+    <aura:attribute name="accIDFromEvent" type="sObject"/>
+    <c:CustomAccountList />
+    <c:CustomAccountForm accountRecord="{!v.accIDFromEvent}" />
+</aura:component>

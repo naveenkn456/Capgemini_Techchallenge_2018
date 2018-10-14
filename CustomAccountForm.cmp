@@ -1,0 +1,42 @@
+<aura:component>
+    <aura:attribute name="accountRecord" type="Object" />
+    <div style="background-color:white" class="slds-box slds-theme_default">
+        <div style="margin-left:100px">
+            <div class="slds-grid slds-wrap" style="margin-top:50px">
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-4"><b>Account Name:</b> {!v.accountRecord.Name}</div>
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-4"><b>Account Number:</b> {!v.accountRecord.AccountNumber}</div>
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_2-of-4"></div>
+            </div>
+            <div class="slds-grid slds-wrap" style="margin-top:10px;">
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-4"><b>Owner: </b>{!v.accountRecord.Owner}</div>
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-4"><b>Account Source:</b> {!v.accountRecord.AccountSource}</div>
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_2-of-4"></div>
+            </div>
+            <div class="slds-grid slds-wrap" style="margin-top:10px;">
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-4"><b>Parent Account: </b>{!v.accountRecord.ParentId}</div>
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-4"><b>Annual Revenue:</b> {!v.accountRecord.AnnualRevenue}</div>
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_2-of-4"></div>
+            </div>
+            <div class="slds-grid slds-wrap" style="margin-top:10px;">
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-4"><b>Type:</b> {!v.accountRecord.Type}</div>
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-4"><b>Created By:</b> {!v.accountRecord.CreatedBy}</div>
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_2-of-4"></div>
+            </div>
+            <div class="slds-grid slds-wrap" style="margin-top:10px;">
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-4"><b>Last Modified By: </b>{!v.accountRecord.LastModifiedBy}</div>
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-4"><b>Industry: </b>{!v.accountRecord.Industry}</div>
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_2-of-4"></div>
+            </div>
+            <div class="slds-grid slds-wrap" style="margin-top:10px;">
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-4"><b>Description:</b> {!v.accountRecord.Description}</div>
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-4"><b>Phone: </b>{!v.accountRecord.Phone}</div>
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_2-of-4"></div>
+            </div>
+            <div class="slds-grid slds-wrap" style="margin-top:10px;">
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-4"><b>Fax:</b> {!v.accountRecord.Fax}</div>
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-4"></div>
+                <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_2-of-4"></div>
+            </div>
+        </div>
+    </div>
+</aura:component>

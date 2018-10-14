@@ -1,0 +1,39 @@
+public class AccountsController {
+    @AuraEnabled
+    public static List<Account> getAccounts() {
+        return [SELECT Id,name,AccountNumber,Owner.name,AccountSource,ParentId,AnnualRevenue,Type,CreatedBy.Name,LastModifiedBy.Name,Industry,Description,Phone,Fax FROM Account order by createddate desc limit 10];
+    }
+    
+    @AuraEnabled
+    public static List<Account> deleteAccountById(string acctId){
+        system.debug('Started server action to delete the account');
+        system.debug(acctId);
+        Account acc =[Select Id from Account where id=:acctId];
+        delete acc;
+        
+        return [SELECT Id,name,AccountNumber,Owner.Name,AccountSource,ParentId,AnnualRevenue,Type,CreatedBy.Name,LastModifiedBy.Name,Industry,Description,Phone,Fax FROM Account order by createddate desc limit 10];
+    }
+    
+    @AuraEnabled
+    public static List<String> deleteRecords(List<String> lstRecordId) {
+        system.debug('insdie apex deleteRecords');
+        system.debug('Record Ids' + lstRecordId);
+        List<String> ErrorMsg = new List <String>();
+        List<Account> lstDeleteRec = [select Id from Account where id IN:lstRecordId];
+        
+        Database.DeleteResult[] DelRes = Database.delete(lstDeleteRec, false);
+        system.debug('Starting the loop');
+        for (Database.DeleteResult dRes: DelRes) {
+             system.debug('Inside for loop');
+            if (dRes.isSuccess()) {
+                system.debug('successful delete contact');
+            } else {  
+                ErrorMsg.add('');
+                for (Database.Error err: dRes.getErrors()) {
+                    ErrorMsg.add(err.getStatusCode() + ': ' + err.getMessage());
+                }
+            }
+        }
+        return ErrorMsg;    
+    }
+}

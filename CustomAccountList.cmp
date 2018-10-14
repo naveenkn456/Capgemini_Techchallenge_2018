@@ -1,0 +1,101 @@
+<aura:component controller="AccountsController" implements="flexipage:availableForAllPageTypes,lightning:actionOverride,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:appHostable">
+    <aura:handler name="init" value="{!this}" action="{!c.loadAccountList}"/> 
+    <aura:attribute name="ListOfAccounts" type="Account[]"/>
+    
+    <aura:handler event="aura:locationChange" action="{!c.refreshView}" />
+    
+    <aura:registerEvent name="cmpEvent" type="c:compEventCG"/>
+    <div class="slds-box slds-theme_default">
+        <div style="margin-top:10px; float:right; margin-bottom:10px; margin-right:100px">
+            <button class="slds-button slds-button_brand" type="button" onclick="{!c.CreateNewAccount}">New</button>
+            <lightning:button label="Delete selected" class="slds-button slds-button_brand" type="Submit" onclick="{!c.deleteSelected}" />
+            <button class="slds-button slds-button_brand" type="button" onclick="{!c.updateAccSource}">Update Account Source</button>
+        </div>
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer" style="margin-top:20px">
+            <thead>
+                <tr class="slds-text-title--caps">
+                    <th style="width:3.25rem;" class="slds-text-align--right">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <label class="slds-checkbox">
+                                    
+                                </label>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        <span class="slds-truncate" title="Name">Account Name</span>      
+                    </th>
+                    <th>
+                        <span class="slds-truncate" title="Name">Account Number</span>      
+                    </th>
+                    <th>
+                        <span class="slds-truncate" title="Name">Account Owner</span>      
+                    </th>
+                    <th>
+                        <span class="slds-truncate" title="Name">Account Source</span>      
+                    </th>
+                    <th>
+                        <span class="slds-truncate" title="Name">Annual Revenue</span>      
+                    </th>
+                    <th>
+                        <span class="slds-truncate" title="Name">Type</span>      
+                    </th>
+                    <th>
+                        <span class="slds-truncate" title="Name">Industry</span>      
+                    </th>
+                    <th>
+                        <span class="slds-truncate" title="Name">Created By</span>      
+                    </th>
+                    
+                </tr>
+            </thead>
+            
+            <tbody>
+                <aura:iteration items="{!v.ListOfAccounts}" var="acc">
+                    <tr>
+                        <td scope="row" class="slds-text-align--right" style="width:3.25rem;">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <label class="slds-checkbox">
+                                        <ui:inputCheckbox text="{!acc.Id}" aura:id="checkbox" value="" change="{!c.OnChangeInputCheckBox}"/>
+                                        <span class="slds-checkbox--faux"></span>
+                                        <span class="slds-form-element__label text"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate" title="{!acc.Name}"><a>{!acc.Name}</a></div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate" title="{!acc.AccountNumber}">{!acc.AccountNumber}</div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate" title="{!acc.Owner.Name}">{!acc.Owner.Name}</div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate" title="{!acc.AccountSource}">{!acc.AccountSource}</div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate" title="{!acc.AnnualRevenue}">{!acc.AnnualRevenue}</div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate" title="{!acc.Type}">{!acc.Type}</div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate" title="{!acc.Industry}">{!acc.Industry}</div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate" title="{!acc.CreatedBy.Name}">{!acc.CreatedBy.Name}</div>
+                        </td>
+                        <td>
+                            <button class="slds-button slds-button_brand" type="button" onclick="{!c.editAccount}" id="{!acc.Id}">Edit</button>&nbsp;&nbsp;
+                            <button class="slds-button slds-button_brand" type="button" onclick="{!c.deleteAccount}" id="{!acc.Id}">Delete</button>
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>    
+</aura:component>

@@ -1,0 +1,15 @@
+1. Please login to my devloper edition to test the implementation
+
+login.salesforce.com
+username: naveenkn456@gmail.com
+password: Jaysu@123
+
+Please contact to my mail ID 'naveenkn456@gmail' or call me to 9591539232 if it asks one time password to login to my dev edition
+
+2. In case if is not possible to login to my dev edition, I am sharing the code in this folder
+
+3. Create a tab in any salesforce org having access to the Account and connect this lightning component 'CustomAccountsParent.cmp' to that tab 
+
+Completed code is hosted at the github
+
+ https://github.com/naveenkn456/Capgemini_Techchallenge_2018.git
