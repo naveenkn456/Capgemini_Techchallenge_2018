@@ -2,7 +2,7 @@
 
 login.salesforce.com
 username: naveenkn456@gmail.com
-password: Jaysu@123
+password: Salesforce@123
 
 Please contact to my mail ID 'naveenkn456@gmail' or call me to 9591539232 if it asks one time password to login to my dev edition
 
